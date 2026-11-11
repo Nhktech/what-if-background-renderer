@@ -19,9 +19,23 @@ jobs:
           unzip -o what-if-background-renderer-project.zip -d extracted
           cp -R extracted/. .
 
-      - name: Fix Java version
+      - name: Fix Java and Kotlin versions
         run: |
-          printf '\ntasks.withType(org.gradle.api.tasks.compile.JavaCompile).configureEach {\n    sourceCompatibility = "17"\n    targetCompatibility = "17"\n}\n' >> app/build.gradle
+          cat >> app/build.gradle <<'EOF'
+
+          android {
+              compileOptions {
+                  sourceCompatibility JavaVersion.VERSION_17
+                  targetCompatibility JavaVersion.VERSION_17
+              }
+          }
+
+          tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+              kotlinOptions {
+                  jvmTarget = "17"
+              }
+          }
+          EOF
 
       - name: Set up Java
         uses: actions/setup-java@v5
