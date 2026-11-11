@@ -19,6 +19,10 @@ jobs:
           unzip -o what-if-background-renderer-project.zip -d extracted
           cp -R extracted/. .
 
+      - name: Fix Java version
+        run: |
+          printf '\ntasks.withType(org.gradle.api.tasks.compile.JavaCompile).configureEach {\n    sourceCompatibility = "17"\n    targetCompatibility = "17"\n}\n' >> app/build.gradle
+
       - name: Set up Java
         uses: actions/setup-java@v5
         with:
