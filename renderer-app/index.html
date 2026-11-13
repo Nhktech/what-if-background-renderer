@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#10111a">
+<title>My Video Renderer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">▶</div>
+    <div><strong>MY VIDEO RENDERER</strong><small>CREATIVE STUDIO</small></div>
+  </div>
+  <span class="status"><i></i> LOCAL STUDIO</span>
+</header>
+
+<main>
+  <section class="welcome">
+    <p class="eyebrow">YOUR PERSONAL VIDEO STUDIO</p>
+    <h1>Create.<br><span>Preview. Render.</span></h1>
+    <p class="sub">Turn your Remotion code into finished videos.</p>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span>01</span><h2>Your Project</h2></div>
+    <label for="projectName">Project name</label>
+    <input id="projectName" value="My First Video" placeholder="Enter project name">
+    <div class="section-title code-title"><span>02</span><h2>TSX Code Editor</h2></div>
+    <div class="editor-tools">
+      <span>episode.tsx</span>
+      <label class="upload" for="tsxFile">＋ Import TSX</label>
+      <input id="tsxFile" type="file" accept=".tsx,.ts,.jsx,.js" hidden>
+    </div>
+    <textarea id="code" spellcheck="false" placeholder="Paste your Remotion TSX code here..."></textarea>
+    <div class="editor-footer"><span id="codeCount">0 characters</span><span>TypeScript / TSX</span></div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span>03</span><h2>Video Settings</h2></div>
+    <div class="settings-grid">
+      <div><label for="resolution">Resolution</label>
+        <select id="resolution">
+          <option value="1080">1920 × 1080 (Full HD)</option>
+          <option value="720">1280 × 720 (HD)</option>
+          <option value="480">854 × 480</option>
+          <option value="2160">3840 × 2160 (4K)</option>
+        </select>
+      </div>
+      <div><label for="ratio">Aspect ratio</label>
+        <select id="ratio">
+          <option value="16:9">16:9 Landscape</option>
+          <option value="9:16">9:16 Portrait</option>
+          <option value="1:1">1:1 Square</option>
+          <option value="4:5">4:5 Portrait</option>
+        </select>
+      </div>
+      <div><label for="fps">Frame rate</label>
+        <select id="fps">
+          <option>30</option><option>24</option><option>25</option><option>60</option>
+        </select>
+      </div>
+      <div><label for="format">Export format</label>
+        <select id="format"><option value="mp4">MP4</option><option value="webm">WebM</option></select>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span>04</span><h2>Preview</h2></div>
+    <div class="preview" id="preview">
+      <div id="previewPlayer"></div>
+      <p>Your video preview will appear here.</p>
+      <small>Import or paste your TSX code to begin.</small>
+    </div>
+    <button class="secondary" id="previewBtn">Prepare Preview</button>
+  </section>
+
+  <section class="card render-card">
+    <div class="section-title"><span>05</span><h2>Render Video</h2></div>
+    <div class="progress-info"><span id="renderStatus">Ready when you are</span><strong id="progressText">0%</strong></div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <button class="primary" id="renderBtn">▶ &nbsp; Render Video</button>
+    <p class="note">Your rendered video will be saved to your Downloads folder.</p>
+  </section>
+
+  <section class="card">
+    <div class="section-title"><span>06</span><h2>Project Assets</h2></div>
+    <label class="asset-upload" for="assets">＋ Add images, audio and video assets</label>
+    <input id="assets" type="file" accept="image/*,audio/*,video/*" multiple hidden>
+    <div id="assetList" class="asset-list">No assets added yet.</div>
+  </section>
+</main>
+<footer>MY VIDEO RENDERER <span>•</span> YOUR CREATIVE WORKSPACE</footer>
+<script type="module" src="/main.jsx"></script>
+<script type="module" src="/app.js"></script>
+  <script type="module" src="/studio-nav.js"></script>
+  <script type="module" src="/timeline.js"></script>
+  <script type="module" src="/sound-ui.js"></script>
+</body>
+</html>
